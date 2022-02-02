@@ -18,9 +18,9 @@
 - For tracking model performance: **MLflow**
 - Object Visualization: **Plotly**
 
-
 ### Sample 3D Objects:
 Sample representation of 3D Mesh Objects and their respective Point Clouds are given below:
 
-![alt text](interactive_sample_visualization\static\sample1.PNG) 
-![alt text](interactive_sample_visualization\static\sample2.PNG)
+![alt text](interactive_sample_visualization/static/sample1.PNG)
+
+![alt text](interactive_sample_visualization/static/sample2.PNG)
