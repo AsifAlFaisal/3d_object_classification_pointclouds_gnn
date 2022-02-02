@@ -9,9 +9,10 @@ class RotaInvNet(torch.nn.Module):
         super().__init__()
         self.num_classes = out_dim
         torch.manual_seed(0)
-        h2 = trial.suggest_int("h2", 16, 32, 8)
-        h3 = trial.suggest_int("h3", 32, 64, 8)
-        h4 = trial.suggest_int("h4", 64, 128, 8)
+        self.k_nn = trial.suggest_int("knn", 10, 20, 2)
+        h2 = trial.suggest_int("h2", 24, 44, 4)
+        h3 = trial.suggest_int("h3", 48, 76, 4)
+        h4 = trial.suggest_int("h4", 80, 128, 8)
         self.mlp1 = MLP([in_dim, 16, h2])
         self.conv1 = PPFConv(local_nn=self.mlp1)
         self.mlp2 = MLP([h2 + in_dim, h3, h4])
@@ -19,7 +20,7 @@ class RotaInvNet(torch.nn.Module):
         self.classifier = Linear(h4, self.num_classes)
         
     def forward(self, pos, normal, batch):
-        edge_index = knn_graph(pos, k=16, batch=batch, loop=True)
+        edge_index = knn_graph(pos, k=self.k_nn, batch=batch, loop=True)
         
         x = self.conv1(x=None, pos=pos, normal=normal, edge_index=edge_index)
         x = torch.relu(x)

@@ -54,7 +54,6 @@ def viz_func(dataset, sample_no):
 
 def get_data(batch_size=32):
     transform = T.Compose([
-        T.RandomTranslate(0.01),
         T.RandomRotate(15, axis=0),
         T.RandomRotate(15, axis=1),
         T.RandomRotate(15, axis=2),
