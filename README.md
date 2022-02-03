@@ -10,7 +10,7 @@
 ### Test Result:
 | Accuracy  | Balanced Accuracy |
 | ------ | ------ |
-| 0.711  | 0.684 |
+| 0.752  | 0.734 |
 
 ### Libraries and Frameworks
 - For model building: **PyTorch** & **PyTorch Geometric**

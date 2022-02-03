@@ -11,7 +11,7 @@ import numpy as np
 def objective(trial):
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     EARLY_STOPPING_TOLERANCE = 15
-    MAX_TRIAL = 100
+    MAX_TRIAL = 200
     NUM_EPOCHS = 200
     MODEL_LIST = []
     with mlflow.start_run():
